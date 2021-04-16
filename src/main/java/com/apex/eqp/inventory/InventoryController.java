@@ -34,7 +34,6 @@ public class InventoryController {
         return ResponseEntity.ok(productService.save(product));
     }
 
-
     @GetMapping("/{id}")
     ResponseEntity<Product> findProduct(@PathVariable Integer id) {
         Optional<Product> byId = productService.findById(id);

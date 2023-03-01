@@ -3,10 +3,7 @@ package com.apex.eqp.inventory.entities;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Getter
@@ -18,7 +15,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class RecalledProduct {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
     @Column(unique = true)

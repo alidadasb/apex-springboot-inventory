@@ -8,6 +8,7 @@ import com.apex.eqp.inventory.repositories.RecalledProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +24,7 @@ public class ProductService {
     private final InventoryRepository inventoryRepository;
     private final RecalledProductRepository recalledProductRepository;
 
+    @Transactional
     public Product save(Product product) {
         return inventoryRepository.save(product);
     }

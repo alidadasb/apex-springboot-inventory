@@ -74,4 +74,21 @@ class ProductServiceTests {
 
     // Write your tests below
 
+    @Test
+    void shouldFilterOutRecalledProduct() {
+        Product product = createTestProduct("Test Product", 55.0, 14);
+        Product savedProduct = productService.save(product);
+        Product loadedProduct = productService.findById(savedProduct.getId()).orElse(null);
+        Assertions.assertNotNull(loadedProduct);
+
+        Assertions.assertTrue(productService.getAllProduct().contains(product));
+
+        RecalledProduct recalledProduct = createTestRecalledProduct(savedProduct.getName(), false);
+        RecalledProduct savedRecalledProduct = recalledProductService.save(recalledProduct);
+        RecalledProduct loaded = recalledProductService.findById(savedRecalledProduct.getId()).orElse(null);
+        Assertions.assertNotNull(loaded);
+
+        Assertions.assertFalse(productService.getAllProduct().contains(product));
+    }
+
 }

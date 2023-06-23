@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.apex.eqp</groupId>
     <artifactId>Inventory</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>inventory</name>
     <description>Demo project for Spring Boot</description>
 
@@ -59,6 +59,12 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
